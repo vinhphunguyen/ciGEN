@@ -1,0 +1,2 @@
+../../interface-elem --mesh-file dcb.msh --out-file dcb-solid.mesh --interface-file dcb-interface.mesh 
+--interface --notch 0 1.5 30 1.5

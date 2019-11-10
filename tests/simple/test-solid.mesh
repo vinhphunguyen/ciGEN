@@ -1,0 +1,68 @@
+<Nodes>
+1 0 0;
+2 100 0;
+3 100 100;
+4 0 100;
+5 50 0;
+6 50 100;
+7 100 50;
+8 0 50;
+9 50 50;
+10 50 0;
+11 50 100;
+12 100 50;
+13 0 50;
+14 50 50;
+15 50 50;
+16 50 50;
+</Nodes>
+<Elements>
+8 1 5 9 8 ;
+9 13 14 6 4 ;
+10 2 7 15 10 ;
+11 12 3 11 16 ;
+12 1 5 ;
+13 8 1 ;
+14 6 4 ;
+15 4 13 ;
+16 2 7 ;
+17 10 2 ;
+18 12 3 ;
+19 3 11 ;
+</Elements>
+<ElementGroup name="888">
+{8,9,10,11}
+</ElementGroup>
+
+<ElementGroup name="111">
+{12,17}
+</ElementGroup>
+
+<ElementGroup name="222">
+{16,18}
+</ElementGroup>
+
+<ElementGroup name="333">
+{14,19}
+</ElementGroup>
+
+<ElementGroup name="444">
+{13,15}
+</ElementGroup>
+
+<NodeGroup name="111">
+{1,2,5}
+</NodeGroup>
+
+<NodeGroup name="222">
+{2,3,7}
+</NodeGroup>
+
+<NodeGroup name="333">
+{3,4,6}
+</NodeGroup>
+
+<NodeGroup name="444">
+{1,4,8}
+</NodeGroup>
+

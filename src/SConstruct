@@ -1,0 +1,4 @@
+env = Environment()
+
+env.Program ('mesh-generator', Glob('*.cpp'))
+

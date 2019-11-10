@@ -1,0 +1,29 @@
+l = 10;
+w = 0.5;
+
+h  = 10;
+h2 = h/6;
+
+Point(1)  = {0,-w,0,h};
+Point(2)  = {l,-w,0,h};
+Point(3)  = {l,w,0,h};
+Point(4)  = {0,w,0,h};
+
+Line(1) = {1,2};
+Line(2) = {2,3};
+Line(3) = {3,4};
+Line(4) = {4,1};
+
+Line Loop(1) = {1,2,3,4};
+
+Plane Surface(1) = {1};
+
+Transfinite Line{1,3} = 51;
+Transfinite Line{2,4} = 2;
+Transfinite Surface{1} = {1,2,3,4};
+Recombine Surface{1};
+
+Physical Line(111)  = {2}; // force edge
+Physical Line(222)  = {4}; // fix edge
+
+Physical Surface(888) = {1}; 

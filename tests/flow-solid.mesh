@@ -1,0 +1,57 @@
+<Nodes>
+1 0 0;
+2 2 0;
+3 2 2;
+4 0 2;
+5 0 1;
+6 2 1;
+7 1 0;
+8 1 2;
+9 1 1;
+10 0 1;
+11 2 1;
+12 1 1;
+13 0 1;
+14 2 1;
+15 1 1;
+</Nodes>
+<Elements>
+4 1 7 9 5 ;
+5 7 2 6 9 ;
+6 10 12 8 4 ;
+7 12 11 3 8 ;
+10 9 5 12 10 15 13 ;
+11 6 9 11 12 14 15 ;
+</Elements>
+
+<ElementGroup name="888">
+{4,5}
+</ElementGroup>
+
+<ElementGroup name="999">
+{6,7}
+</ElementGroup>
+
+<ElementGroup name="interfaces">
+{[10:12]}
+</ElementGroup>
+
+<ElementGroup name="0">
+{10,11}
+</ElementGroup>
+
+<ElementDatabase name = "neighbours">
+<Column name = "connect" type = "int">
+10 4 6;
+11 5 7;
+</Column>
+</ElementDatabase>
+
+<NodeGroup name="111">
+{1,2,7}
+</NodeGroup>
+
+<NodeGroup name="222">
+{3,4,8}
+</NodeGroup>
+

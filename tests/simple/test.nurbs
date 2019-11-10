@@ -1,0 +1,27 @@
+NumberOfNodess 12 NumberOfElements 2 
+NODES 
+ 1 0.000000  0 
+ 2 3.333333  0 
+ 3 6.666667  0 
+ 4 10.000000  0 
+ 5 0.000000  5 
+ 6 3.333333  5 
+ 7 6.666667  5 
+ 8 10.000000  5 
+ 9 0.000000  10 
+ 10 3.333333  10 
+ 11 6.666667  10 
+ 12 10.000000  10 
+ELEMENTS 
+1 2 3 4 5 6 7 8 
+5 6 7 8 9 10 11 12 
+MATERIAL ID
+1 1
+2 2
+NODE GROUPS 3 
+bottomNodes
+1 2 3 4 
+topNodes
+9 10 11 12 
+rightNodes
+4 8 12 

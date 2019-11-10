@@ -1,0 +1,40 @@
+This file describe in brief how to compile and use the interface element
+inserting program which is described in detail in the paper 
+
+VP Nguyen, "An open source program to generate zero-thickness cohesive interface elements", Advances in Engineering 
+Software, 2014.
+
+If you have used this code successfully please cite the above article.
+
+1. Used libraries:
+
+The program uses firstly the Standard Template Library (STL) which is 
+available in most of operating systems. It also uses the Boost library
+which can be downloaded at www.boost.org.
+
+2. Compilation
+
+The program can be easily compiled using the scons program, 
+www.scons.org. In the terminal, just type scons. That's it :-)
+It can be also compiled using Gnu Make, by simply typing make in a terminal. For Linux 
+and Mac OS machines, a makefile is provided. For Windows, the code can be compiled using
+Microsoft Visual Studio (after Boost was installed).
+
+3. Usage:
+
+In the terminal, type: ./mesh-generator --help for a simple manual. 
+
+An example to generate a mesh for a double cantiler beam with a pre-existing notch is:
+
+./mesh-generator --mesh-file dcb.msh --out-file dcb-solid.mesh --interface-file dcb-interface.mesh --interface
+--notch 0 0 55 0 
+
+4. Capabilities:
+
+In short the code reads a Gmsh mesh file and generate cohesive interface elements for (1) jem-jive FEM code
+and (2) Abaqus FE package. 
+
+
+Vinh Phu Nguyen, nvinhphu@gmail.com
+Cardiff University,
+May 2014.
