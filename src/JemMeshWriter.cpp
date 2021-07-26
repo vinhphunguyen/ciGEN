@@ -6,6 +6,10 @@
 #include <boost/algorithm/string.hpp>
 
 
+#include <iostream>
+#include <iomanip>
+
+
 // =====================================================================
 //     writeJemMesh
 // =====================================================================
@@ -16,6 +20,8 @@ void                     writeJemMesh
       const char* fileName )
 {
   ofstream file ( fileName, std::ios::out );
+
+  cout << setprecision(10);   file << setprecision(10);//increase the precision
   
   cout << "Writing nodes...\n";
 
@@ -63,9 +69,13 @@ void                     writeJemMesh
 
     file << ep->getIndex () << " ";
 
+    //cout << ie << "\n";
+
     ep->getJemConnectivity ( connect ); 
 
     copy ( connect.begin(), connect.end(), ostream_iterator<int> (file, " " ) );
+
+    //print ( connect.begin(), connect.end() );
 
     file << ";\n";
   }
@@ -190,11 +200,10 @@ void                     writeJemMesh
 
   //const int domCount = globdat.dom2Elems.size ();
 
-  Int2IntVectMap::iterator it;//  = globdat.dom2Elems.begin ();
-  Int2IntVectMap::iterator eit   = globdat.dom2Elems.end ();
-  Int2IntVectMap::iterator eitm1 = --globdat.dom2Elems.end ();
+  Int2IntVectMap::iterator it  = globdat.dom2Elems.begin ();
+  Int2IntVectMap::iterator eit = globdat.dom2Elems.end   ();
 
-  for ( it = globdat.dom2Elems.begin (); it != eit; ++it )
+  for ( ; it != eit; ++it )
   {
     int       domName = it->first; 
     IntVector elems   = it->second; 
@@ -211,20 +220,6 @@ void                     writeJemMesh
          << "</ElementGroup>\n\n";
   }
 
-  // write the aggregate element group "bulk"
-
-  file << "<ElementGroup name=\"" << "bulk"  << "\">\n{";
-
-  for ( it = globdat.dom2Elems.begin (); it != eitm1; ++it )
-  {
-    int       domName = it->first; 
-    
-    file << globdat.physicalNames[domName] << " | " ;
-  }
-
-  file << globdat.physicalNames[eitm1->first] << "}\n"
-       << "</ElementGroup>\n\n";
-
   cout << "Writing bulk element groups...done!\n\n";
 
   if ( !globdat.isNeper )
@@ -239,7 +234,8 @@ void                     writeJemMesh
       int       domName = it->first; 
       IntVector elems   = it->second; 
 
-      file << "<ElementGroup name=\"" << domName << "\">\n{";
+      //file << "<ElementGroup name=\"" << domName << "\">\n{";
+      file << "<ElementGroup name=" << globdat.physicalNames[domName] << ">\n{";
       
       for ( int ie = 0; ie < elems.size()-1; ie++ )
       {

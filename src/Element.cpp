@@ -522,7 +522,7 @@ void Element::getJemConnectivity
     }
     else
     {
-      getJemConnect2DQuadratic_ ( connec );
+      getJemConnect2DQuadratic_ ( connec ); //Quad8
     }
   }
 }
@@ -1150,9 +1150,8 @@ void Element::getJemConnect2DQuadratic_
      ( IntVector& connect )            const
 {
 
+  int  NodeCount = connect.size ();
   int  halfNodeCount = connect.size () / 2;
-
-  //print(connectivity_.begin(),connectivity_.end());
 
   for ( int i = 0; i < halfNodeCount; i++ )
   {
@@ -1160,7 +1159,11 @@ void Element::getJemConnect2DQuadratic_
     connect[2*i+1] = connectivity_[halfNodeCount+i];
   }
 
-  //print(connect.begin(),connect.end());
+  // Q9 element
+  double remainder = halfNodeCount - connect.size () / 2.0;
+  if( remainder !=0.0 ) connect[NodeCount-1] = connectivity_[NodeCount-1];
+
+  //print(connectivity_.begin(),connectivity_.end());
 }
 
 
